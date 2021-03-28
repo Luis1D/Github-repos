@@ -39,12 +39,13 @@ function App() {
       <div className="repo-list-container">
         {
           repoList ? repoList.map(repo => {
-            return <a className="repo" href={ repo.clone_url } key={ repo.id }>
+            return <div className="repo" key={ repo.id }>
               <span className="repo-name">{ repo.name }</span>
               <span className="description">{ repo.description }</span>
               <span className="date-created">Created: { repo.created_at }</span>
               <span className="date-created">Last Updated: { repo.updated_at }</span>
-            </a>
+              <a className="vist-btn" href={ repo.clone_url }>Visit Repo</a>
+            </div>
           })
           : null
         }
