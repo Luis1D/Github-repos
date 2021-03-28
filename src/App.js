@@ -15,14 +15,17 @@ function App() {
       .catch(err => {
         console.log(err);
       })
+      if (repoList) {
+        console.log(repoList[0])
+      }
   },[])
   return (
     <div className="App">
       <header>
-        <h1>Github</h1>
-        <div className="user-photo-container">
+        <div>
         {
-          userPhoto ? <div>
+          userPhoto ? <div className="user-photo-container">
+            <span className="username">{ repoList[0].owner.login }</span>
             <img 
               src={ userPhoto }
               alt="user"
@@ -36,8 +39,11 @@ function App() {
       <div className="repo-list-container">
         {
           repoList ? repoList.map(repo => {
-            return <a className="repo" href={ repo.clone_url } >
+            return <a className="repo" href={ repo.clone_url } key={ repo.id }>
               <span className="repo-name">{ repo.name }</span>
+              <span className="description">{ repo.description }</span>
+              <span className="date-created">Created: { repo.created_at }</span>
+              <span className="date-created">Last Updated: { repo.updated_at }</span>
             </a>
           })
           : null

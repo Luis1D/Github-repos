@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(26, 23, 23);
-  color: rgb(242, 233, 233);
+  background-color: rgb(255, 196, 0);
+  color: rgb(0, 0, 0);
 }
 a {
   text-decoration: none;
@@ -14,10 +14,18 @@ header {
   justify-content: center;
   margin-top: 1rem;
 }
+.user-photo-container {
+  display: flex;
+  align-items: center;
+}
 .user-photo {
   width: 5rem;
   border-radius: 50%;
   margin-left: 1rem;
+}
+.username {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 .repo-list-container {
   width: 75%;
@@ -26,10 +34,12 @@ header {
 .repo {
   background-color: #000;
   margin-top: 1rem;
-  height: 5rem;
+  padding: 1rem;
+  height: 10rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .repo:hover {
   background-color: rgb(38, 36, 36);
@@ -37,5 +47,9 @@ header {
 }
 .repo-name {
   font-size: 1.25rem;
+  text-transform: uppercase;
+  color: rgb(242, 233, 233);
+}
+.description, .date-created {
   color: rgb(242, 233, 233);
 }
