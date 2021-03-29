@@ -5,6 +5,13 @@ import axios from 'axios';
 function App() {
   const [repoList, setRepoList] = useState();
   const [userPhoto, setUserPhoto] = useState();
+
+  const convertDate = (date)  => {
+    let dateToFormat = new Date(date);
+    let formatedDate = dateToFormat.getFullYear()+'-' + (dateToFormat.getMonth()+1) + '-'+dateToFormat.getDate();
+    return formatedDate;
+  }
+
   useEffect(() => {
     axios.get("https://api.github.com/users/Luis1D/repos")
       .then(res => {
@@ -42,8 +49,8 @@ function App() {
             return <div className="repo" key={ repo.id }>
               <span className="repo-name">{ repo.name }</span>
               <span className="description">{ repo.description }</span>
-              <span className="date-created">Created: { repo.created_at }</span>
-              <span className="date-created">Last Updated: { repo.updated_at }</span>
+              <span className="date-created">Created: { convertDate(repo.created_at) }</span>
+              <span className="date-created">Last Updated: { convertDate(repo.updated_at) }</span>
               <a className="vist-btn" href={ repo.clone_url }>Visit Repo</a>
             </div>
           })
